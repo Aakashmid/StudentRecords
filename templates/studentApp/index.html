@@ -5,5 +5,11 @@
 
 {% block content%}
 
- <h1>Index page </h1>
+<div class="">
+    <ul class="flex flex-col">
+        {% for st in students %}
+        <li>{{st.first_name}} {{st.last_name}}</li>
+        {% endfor%}
+    </ul>
+</div>
 {% endblock content%}

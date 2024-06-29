@@ -4,7 +4,7 @@ from django.core.exceptions import ValidationError
 # Create your models here.
 
 def validate_phone_number(value):
-    if not  len(value) == 10  and not value.isdigit():
+    if not  len(value) == 10  and not (ch.isdigit() for ch in value):
         raise ValidationError('Phone number number must contain 10 digits')
   
 
