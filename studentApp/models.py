@@ -9,12 +9,14 @@ def validate_phone_number(value):
   
 
 class Student(models.Model):
-    gender_choice={'male':'male','female':'female','other':'other'}
-    roll_no=models.IntegerField(primary_key=True)
-    name=models.CharField(max_length=50)
-    gender=models.CharField(max_length=10,choices=gender_choice,default='male')
-    phone_number=models.IntegerField(validators=[validate_phone_number], unique=True)
-
+    first_name = models.CharField(max_length=50)
+    last_name = models.CharField(max_length=50)
+    date_of_birth = models.DateField()
+    email = models.EmailField(unique=True)
+    enrollment_date = models.DateField(auto_now_add=True)
+    phone_number = models.CharField(validators=[validate_phone_number], max_length=10, blank=True, null=True)
+    address = models.TextField(blank=True, null=True)
+    course = models.CharField(max_length=100)
 
     def __str__(self):
-        return self.name
+        return f"{self.first_name} {self.last_name}"

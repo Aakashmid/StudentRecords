@@ -5,7 +5,7 @@ from .models import Student
 # Using Class Based View
 
 class StudentList(ListView):
-    # model=Student
+    model=Student
     queryset=Student.objects.all()
     template_name='studentApp/index.html'
     context_object_name='students'
