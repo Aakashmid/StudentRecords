@@ -9,8 +9,8 @@ from .models import Student
 class StudentList(ListView):
     model=Student
     queryset=Student.objects.all()
-
-    # def get_queryset(self) -> QuerySet[Any]:
-    #     return super().get_queryset()
     template_name='studentApp/index.html'
     context_object_name='students'
+
+# class StudentRetrieve(DetailView):
+#     model=Student
