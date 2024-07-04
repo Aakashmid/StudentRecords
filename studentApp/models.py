@@ -1,6 +1,6 @@
 from django.db import models
 from django.core.exceptions import ValidationError
-
+from django.utils.text import slugify
 # Create your models here.
 
 def validate_phone_number(value):
@@ -17,6 +17,6 @@ class Student(models.Model):
     phone_number = models.CharField(validators=[validate_phone_number], max_length=10, blank=True, null=True)
     address = models.TextField(blank=True, null=True)
     course = models.CharField(max_length=100)
-
+    
     def __str__(self):
         return f"{self.first_name} {self.last_name}"

@@ -1,0 +1,25 @@
+{% extends "studentApp/base.html" %}
+
+{% block title %}
+Student Detail
+{% endblock title %}
+
+{% block content %}
+<div class="container">
+
+    <div class="bg-white w-1/2 mt-10 mx-auto lg:p-4 p-3 rounded-xl">
+        <div class="">
+            <ul id="student_details" class="flex flex-col space-y-2 items-start w-full">
+                <li class="p-2 border-b border-gray-300"><strong>Entrollment Date : </strong> {{student.enrollment_date }} </li>
+                <li class="p-2 border-b border-gray-300"><strong>Course : </strong> {{student.course }} </li>
+                <li class="p-2 border-b border-gray-300"><strong>Name : </strong> {{student.first_name }} {{student.last_name}}</li>
+                <li class="p-2 border-b border-gray-300"><strong>Date of birth : </strong>{{student.date_of_birth }} </li>
+                <li class="p-2 border-b border-gray-300"><strong>Address : </strong>{{student.address }} </li>
+                <li class="p-2 border-b border-gray-300"><strong>Phone number : </strong>{{student.phone_number }} </li>
+                <li class="p-2 border-b border-gray-300"><strong>Email : </strong>{{student.email }} </li>
+                <li class=""><a href="#" class=" p-2 bg-orange-600 text-white text-lg font-semibold ">Update Details</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock content %}

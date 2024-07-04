@@ -12,5 +12,8 @@ class StudentList(ListView):
     template_name='studentApp/index.html'
     context_object_name='students'
 
-# class StudentRetrieve(DetailView):
-#     model=Student
+
+class StudentDetail(DetailView):
+    model=Student
+    template_name='studentApp/studetail.html'
+    context_object_name='student'

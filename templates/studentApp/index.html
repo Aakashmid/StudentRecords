@@ -1,15 +1,37 @@
 {% extends "studentApp/base.html" %}
 
 {% block title %}
+Home
 {% endblock title %}
 
 {% block content%}
-
-<div class="">
-    <!-- <ul class="flex flex-col">
-        {% for st in students %}
-        <li>{{st.first_name}} {{st.last_name}}</li>
-        {% endfor%}
-    </ul> -->
+<div class="container mt-10 w-full ">
+    <div class="w-[80vw] mx-auto rounded-lg lg:rouded-xl bg-white p-3 lg:p-4">
+        <table class="w-full">
+            <tr class="border-b">
+                <th class="text-left p-2" >S.No</th>
+                <th class="text-left p-2" >Name</th>
+                <th class="text-left p-2" >Course</th>
+                <th class="text-left p-2" >Email</th>
+                <th class="text-left p-2" >Enrollment Date</th>  
+                <th class="text-left p-2" >Actions</th>  
+            </tr>
+            {% for st in students %}
+            <tr class="border-b">
+                <td class="text-left p-2" >{{forloop.counter}}</td>
+                <td class="text-left p-2" >{{st.first_name}} {{st.last_name}}</td>
+                <td class="text-left p-2" >  {{st.course}}</td>
+                <td class="text-left p-2" >{{st.email}}</td>
+                <td class="text-left p-2" >{{st.enrollment_date}}</td>    
+                <td class="flex items-baseline space-x-2">
+                    <a href="{% url "StuApp:Student-Detail" st.id %}" class="view-btn p-1 hover:shadow-xl active:text-gray-800 "><i class="fa-solid fa-eye fa-lg"></i></a>
+                    <a href="#" class="edit-btn p-1 hover:shadow-xl active:text-gray-800 "><i class="fa-solid fa-user-pen fa-lg"></i></a>
+                    <a href="#" class="delete-btn p-1 hover:shadow-xl active:text-gray-800 "><i class="fa-solid fa-trash fa-lg"></i></a>
+                </td>
+                
+            </tr>
+            {% endfor %}
+        </table> 
+    </div>
 </div>
 {% endblock content%}

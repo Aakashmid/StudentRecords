@@ -5,21 +5,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'src/main.css' %}">
+    <script src="https://kit.fontawesome.com/72038e3a92.js" crossorigin="anonymous"></script>
     <title>{% block title %}
         {% endblock title %}</title>
 </head>
 <body class="bg-orange-50">
     <header>
-        <nav class="flex items-baseline bg-white px-6 py-3 justify-between space-x-4">
-            <p class="lg:text-xl font-[700] ">StuList</p>
-            <ul class="flex items-center space-x-3 p">
-                <li class=""><a href="/" class= "hover:bg-gray-400 text-lg ">Home</a></li>
-                <li class=""><a href="" class=" hover:bg-gray-400 text-lg ">About</a></li>
-            </ul>
-            <span class="flex space-x-2 items-center">
-                <input type="text" class="px-2 py-1  outline outline-none focus:outline-none border rounded-lg">
-                <button class="px-4 py-2 rounded-2xl text-lg bg-orange-500  text-white">Search</button>
+        <nav class="flex items-baseline bg-gray-800  py-2 justify-around  ">
+            <span class="flex items-center space-x-3">
+                <p class="lg:text-2xl text-white font-medium px-2 py-1 hover:text-amber-600 "><a href="/" class="">StuList</a></p>
+                <p class="lg:text-lg text-white px-2 py-1  hover:text-amber-600 "><a href="/" class="">Home</a></p>
             </span>
+            <form action="#" class="flex space-x-2 items-center">
+                <input type="text" class="px-2 py-1  outline outline-none  rounded-lg " placeholder="Search student...">
+                <button type="submit" class="px-4 text-white py-2 rounded-3xl text-lg bg-orange-600 hover:bg-orange  ">Search</button>
+            </form>
         </nav>
     </header>
     {% block content%}
