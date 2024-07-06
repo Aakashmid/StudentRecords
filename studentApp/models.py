@@ -14,7 +14,7 @@ class Student(models.Model):
     date_of_birth = models.DateField()
     email = models.EmailField(unique=True)
     enrollment_date = models.DateField(auto_now_add=True)
-    phone_number = models.CharField(validators=[validate_phone_number], max_length=10, blank=True, null=True)
+    phone_number = models.CharField(validators=[validate_phone_number], max_length=10, blank=True, null=True,default='')
     address = models.TextField(blank=True, null=True)
     course = models.CharField(max_length=100)
     

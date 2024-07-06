@@ -11,16 +11,20 @@
 </head>
 <body class="bg-orange-50">
     <header>
-        <nav class="flex items-baseline bg-gray-800  py-2 justify-around  ">
-            <ul class="flex items-end space-x-3">
-                <li class="lg:text-2xl text-white font-medium px-2 py-1"><a href="/" class="">StuList</a></li>
-                <li class="lg:text-lg text-white px-2 py-1  hover:text-amber-600 "><a href="/" class="">Home</a></li>
-                <li class="lg:text-lg text-white px-2 py-1  hover:text-amber-600 "><a href="{% url 'StuApp:Student-Create' %}" class="">Add Student</a></li>
+        <nav class="relative sm:flex sm:items-center bg-gray-800  py-2  sm:justify-between lg:justify-around  px-3 lg:px-0 ">
+            <ul class="flex items-baseline lg:space-x-3 space-x-1">
+                <li class="text-lg  lg:text-2xl text-orange-600 bg-white  rounded-lg font-semibold px-2 py-1"><a href="/" class="">StuList</a></li>
+                <li class=" lg:text-lg text-white px-1 py-1 lg:px-2   hover:text-amber-600 "><a href="/" class="">Home</a></li>
+                <li class=" lg:text-lg text-white px-1 py-1 lg:px-2   hover:text-amber-600 "><a href="{% url 'StuApp:Student-Create' %}" class="">Add Student</a></li>
             </ul>
-            <form action="{% url 'StuApp:student-list' %}" method="get" class="flex space-x-2 items-center">
-                <input name="q" type="text" class="px-2 py-1  outline outline-none  rounded-lg " placeholder="Search student...">
-                <button type="submit" class="px-4 text-white py-2 rounded-3xl text-lg bg-orange-600 hover:bg-orange  ">Search</button>
+            <form action="{% url 'StuApp:student-list' %}" method="get" class=" hidden sm:flex space-x-2 items-center ">
+                <input name="q" type="text" class="px-2 py-1 lg:p-2  outline outline-none  rounded-lg " placeholder="Search student...">
+                <button type="submit" class="px-3 py-1 rounded-2xl  lg:px-4  lg:py-2 lg:rounded-3xl lg:text-lg bg-orange-600 hover:bg-orange text-white ">Search</button>
             </form>
+            <span class="p-1 absolute right-3 top-2 active:text-gray-400 sm:hidden text-white"><i class="fa-solid fa-magnifying-glass fa-lg "></i></span>
+            <div class="hidden" >
+                <input type="text">
+            </div>
         </nav>
     </header>
     {% block content%}

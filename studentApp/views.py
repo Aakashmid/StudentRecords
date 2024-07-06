@@ -27,8 +27,16 @@ class StudentDetail(DetailView):
     context_object_name='student'
     template_name='studentApp/studetail.html'
 
-# class StudentCreate(CreateView):
-#     pass
+class StudentCreate(CreateView):
+    model=Student
+    fields=['first_name','last_name','date_of_birth','email','address','phone_number']
+    template_name='studentApp/studentCreate.html'
+    success_url=reverse_lazy('StuApp:student-list')
+
+    # def form_valid(self, form):
+    #     # Custom processing can be done here if needed
+    #     return super().form_valid(form)
+    
 
 # class StudentUpdate(UpdateView):
 #     pass
