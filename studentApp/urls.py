@@ -4,5 +4,6 @@ app_name="StuApp"
 
 urlpatterns = [
     path('',views.StudentList.as_view(),name='student-list'),
-    path('student/<int:pk>',views.StudentDetail.as_view(),name='Student-Detail')
+    path('detail/<int:pk>',views.StudentDetail.as_view(),name='Student-Detail'),
+    path('delete/<int:pk>',views.StudentDelete.as_view(),name='Student-Delete')
 ]

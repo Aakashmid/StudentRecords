@@ -6,9 +6,12 @@ Home
 
 {% block content%}
 <div class="container mt-10 w-full ">
-    <div class="w-[80vw] mx-auto rounded-lg lg:rouded-xl bg-white p-3 lg:p-4">
+
+
+    <div class="w-[95vw] lg:w-[80vw]    shadow-lg  mx-auto rounded-lg lg:rouded-xl bg-white p-3 lg:p-4">
+        {% if students %}
         <table class="w-full">
-            <tr class="border-b">
+            <tr class="border-b pb-4">
                 <th class="text-left p-2" >S.No</th>
                 <th class="text-left p-2" >Name</th>
                 <th class="text-left p-2" >Course</th>
@@ -24,14 +27,22 @@ Home
                 <td class="text-left p-2" >{{st.email}}</td>
                 <td class="text-left p-2" >{{st.enrollment_date}}</td>    
                 <td class="flex items-baseline space-x-2">
-                    <a href="{% url "StuApp:Student-Detail" st.id %}" class="view-btn p-1 hover:shadow-xl active:text-gray-800 "><i class="fa-solid fa-eye fa-lg"></i></a>
+                    <a href="{% url 'StuApp:Student-Detail' st.id %}" class="view-btn p-1 hover:shadow-xl active:text-gray-800 "><i class="fa-solid fa-eye fa-lg"></i></a>
+                    <form action="{% url 'StuApp:Student-Delete' st.id  %}" method="post">
+                        {% csrf_token %}
+                        <button type="submit" class="delete-btn p-1 hover:shadow-xl active:text-gray-800 "><i class="fa-solid fa-trash fa-lg"></i></button>
+                    </form>
                     <a href="#" class="edit-btn p-1 hover:shadow-xl active:text-gray-800 "><i class="fa-solid fa-user-pen fa-lg"></i></a>
-                    <a href="#" class="delete-btn p-1 hover:shadow-xl active:text-gray-800 "><i class="fa-solid fa-trash fa-lg"></i></a>
                 </td>
                 
             </tr>
             {% endfor %}
         </table> 
+        {% else %}
+        <div class="w-fit mx-auto ">
+            <p class="text-center lg:text-xl text-lg  font-medium ">There is no student !! </p>
+        </div>
+        {% endif %}
     </div>
 </div>
 {% endblock content%}

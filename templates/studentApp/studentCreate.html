@@ -1,0 +1,15 @@
+{% extends "studentApp/base.html" %}
+
+{% block title%}
+Create 
+{% endblock title%}
+
+{% block content %}
+<div class="Container">
+    <div class="Create-form-div">
+        <form action="#" method="post">
+            {% csrf_token %}
+        </form>
+    </div>
+</div>
+{% endblock content %}
